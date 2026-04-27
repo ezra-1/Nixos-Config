@@ -7,6 +7,7 @@
   imports = [
     ../../modules/core/zsh
     ../../modules/programs/terminal/kitty
+    ../../modules/programs/media/discord
   ];
 
 
