@@ -1,46 +1,46 @@
 { config, pkgs, libs, inputs, outputs, ... }:
 
 {
-  ##################################################
+  # --------------------------------------------------------
   # Imports
-  ##################################################
+  # --------------------------------------------------------
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  ##################################################
+  # --------------------------------------------------------
   # Nix Settings
-  ##################################################
+  # --------------------------------------------------------
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow proprietary packages (NVIDIA, Steam, etc.)
   nixpkgs.config.allowUnfree = true;
 
-  ##################################################
+  # --------------------------------------------------------
   # Bootloader
-  ##################################################
+  # --------------------------------------------------------
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Latest kernel (good performance, but occasionally unstable)
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  ##################################################
+  # --------------------------------------------------------
   # Networking
-  ##################################################
+  # --------------------------------------------------------
   networking.hostName = "ezra";
   networking.networkmanager.enable = true;
 
-  ##################################################
+  # --------------------------------------------------------
   # Time / Locale
-  ##################################################
+  # --------------------------------------------------------
   time.timeZone = "America/Jamaica";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  ##################################################
+  # --------------------------------------------------------
   # Desktop (KDE Plasma 6)
-  ##################################################
+  # --------------------------------------------------------
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -141,8 +141,9 @@
     wget
     unzip
     kitty
-    gnumake
     direnv
+    blender
+    gnumake
     tree-sitter
     bibata-cursors
 
