@@ -5,17 +5,17 @@
   # Inputs
   # ------------------------------------------------------
   inputs = {
-    # ------------------ Nixpkgs ------------------
+    # ------------------ Nixpkgs -------------------------
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
-    # ------------------ Home Manager ------------------
+    # ------------------ Home Manager ---------------------
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ------------------ Better Blur -------------------
+    # ------------------ Better Blur -----------------------
      kwin-effects-better-blur-dx = {
       url = "github:xarblu/kwin-effects-better-blur-dx";
       inputs.nixpkgs.follows = "nixpkgs";
