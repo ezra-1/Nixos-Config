@@ -68,8 +68,8 @@
 
       settings = {
         user = {
-          name = "Ezra Lawrence";
-          email = "ezralawrence02@gmail.com";
+          name = "Your username";
+          email = "Your Email";
         };
 
         init.defaultBranch = "main";
