@@ -143,6 +143,7 @@
     kitty
     direnv
     blender
+    spotify
     gnumake
     tree-sitter
     bibata-cursors

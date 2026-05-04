@@ -20,6 +20,12 @@
       url = "github:xarblu/kwin-effects-better-blur-dx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # ------------------- Spicetify Nix -----------------
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # ------------------------------------------------------
@@ -77,6 +83,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home/ezra/ezra.nix
+            inputs.spicetify-nix.homeManagerModules.default
           ];
         };
       };

@@ -6,8 +6,10 @@
   # --------------------------------------------------------
   imports = [
     ../../modules/core/zsh
-    ../../modules/programs/terminal/kitty
+    ../../modules/programs/cli/lazygit
     ../../modules/programs/media/discord
+    ../../modules/programs/terminal/kitty
+    ../../modules/programs/media/spicetify
   ];
 
 
@@ -68,8 +70,8 @@
 
       settings = {
         user = {
-          name = "Your username";
-          email = "Your Email";
+          name = "Ezra Lawrence";
+          email = "User Name";
         };
 
         init.defaultBranch = "main";
