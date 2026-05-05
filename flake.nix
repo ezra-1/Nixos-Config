@@ -26,6 +26,12 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # ------------------ Neovim ------------------------
+    neovim = {
+      url = "github:ezra-1/Neovim-Config";
+      flake = false;
+    };
   };
 
   # ------------------------------------------------------

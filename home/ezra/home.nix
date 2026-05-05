@@ -9,6 +9,7 @@
     ../../modules/programs/cli/lazygit
     ../../modules/programs/media/discord
     ../../modules/programs/terminal/kitty
+    ../../modules/programs/editor/neovim
     ../../modules/programs/media/spicetify
   ];
 
@@ -29,7 +30,6 @@
     git
     eza
     bat
-    neovim
     wget
     fastfetch
     spicetify-cli
@@ -71,7 +71,7 @@
       settings = {
         user = {
           name = "Ezra Lawrence";
-          email = "User Name";
+          email = "ezralawrence03@gmail.com";
         };
 
         init.defaultBranch = "main";
