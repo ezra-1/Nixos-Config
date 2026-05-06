@@ -8,8 +8,9 @@
     ../../modules/core/zsh
     ../../modules/programs/cli/lazygit
     ../../modules/programs/media/discord
-    ../../modules/programs/terminal/kitty
+    ../../modules/system/monitoring/btop
     ../../modules/programs/editor/neovim
+    ../../modules/programs/terminal/kitty
     ../../modules/programs/media/spicetify
   ];
 
