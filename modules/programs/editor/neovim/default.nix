@@ -2,42 +2,64 @@
 
 {
   # ------------------------------------------------------
-  # 🧩 System Packages — Dependencies for Neovim
+  # 🛠️ Development Tools & Neovim Dependencies
   # ------------------------------------------------------
+  # Packages required for:
+  # - LSPs
+  # - Formatters
+  # - Treesitter parsers
+  # - Compilers/build tools
+  # - Telescope/file searching
   home.packages = with pkgs; [
-    gcc
-    nodejs
-    nil
-    nixfmt-tree
-    ripgrep
+    gcc                     # C compiler (Treesitter/native builds)
+    nodejs                  # JS runtime for many LSP servers
+    cargo                   # Rust package manager/build tool
 
-    # Optional but very useful
-    fd                # Faster file searching
-    stylua            # Lua formatter
-    lua-language-server
+    # Nix tooling
+    nil                     # Nix language server
+    nixfmt-tree             # Nix formatter
+
+    # Search utilities
+    ripgrep                 # Fast grep for Telescope/live grep
+    fd                      # Faster alternative to find
+
+    # Lua / Neovim tooling
+    stylua                  # Lua formatter
+    lua-language-server     # Lua LSP
+
+    # Python tooling
+    python3                 # Python interpreter
+    pyright                 # Python language server
+    black                   # Python formatter
+    ruff                    # Fast Python linter/formatter
   ];
 
   # ------------------------------------------------------
-  # 🧠 Neovim Setup
+  # 🧠 Neovim
   # ------------------------------------------------------
   programs.neovim = {
     enable = true;
 
-    # ✅ Silence warnings + use modern defaults
-    withPython3 = false;
+    # Enable Python provider support
+    withPython3 = true;
+
+    # Disable unused providers
     withRuby = false;
   };
 
-  # Link Neovim configuration from your flake input
+  # ------------------------------------------------------
+  # 📂 Neovim Configuration
+  # ------------------------------------------------------
+  # Symlink Neovim config from flake input
   xdg.configFile."nvim".source = inputs.neovim;
 
   # ------------------------------------------------------
-  # 🖥️ Desktop Entry
+  # 🖥️ Desktop Launcher
   # ------------------------------------------------------
   xdg.desktopEntries.nvim = {
-    name = "Neovim wrapper";
+    name = "Neovim";
     genericName = "Text Editor";
-    comment = "Edit text files";
+    comment = "Launch Neovim inside Kitty";
 
     exec = "${lib.getExe pkgs.kitty} --class nvim-wrapper -e nvim %F";
 
